@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>mySAMS II - Mobile Responsive Prototype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mySAMS II - Prototaip Pentadbiran (Bahasa Melayu)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -11,16 +12,10 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #F3F4F6; }
         .lepton-sidebar { background-color: #101219; transition: transform 0.3s ease-in-out; }
-        
-        /* Mobile Overlay for Sidebar */
         .sidebar-overlay { background-color: rgba(0,0,0,0.5); backdrop-filter: blur(2px); }
-
         .fade-in { animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
         .hidden-page { display: none !important; }
-        
-        /* Custom scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -31,31 +26,41 @@
     <div id="mobile-overlay" onclick="toggleSidebar()" class="fixed inset-0 z-20 sidebar-overlay hidden md:hidden"></div>
 
     <aside id="main-sidebar" class="lepton-sidebar fixed inset-y-0 left-0 z-30 w-64 transform -translate-x-full md:relative md:translate-x-0 flex flex-col text-gray-400 flex-shrink-0 shadow-2xl md:shadow-none">
-        <div class="h-16 flex items-center justify-between px-6 border-b border-gray-800">
-            <span class="text-white font-bold text-lg">mySAMS <span class="text-blue-500">II</span></span>
-            <button onclick="toggleSidebar()" class="md:hidden text-gray-400 hover:text-white">
-                <i class="fas fa-times"></i>
-            </button>
+        
+        <div class="h-24 flex items-center justify-between px-4 border-b border-gray-800 bg-gray-900">
+            <div class="flex items-center w-full justify-end">
+                
+                <div class="flex flex-col justify-center items-end mr-3 flex-1 text-right">
+                    <span class="text-white font-bold text-lg leading-none">mySAMS <span class="text-blue-500">II</span></span>
+                    <span class="text-[9px] text-gray-400 uppercase tracking-wider leading-none mt-1.5 font-semibold">Pejabat Pesuruhjaya<br>Sukan Malaysia</span>
+                </div>
+
+                <div class="bg-white p-1 rounded">
+                    <img src="https://www.kbs.gov.my/images/Galeri2025/Takwim/logo_kbs.png" class="h-12 w-auto" alt="Logo KBS">
+                </div>
+                
+            </div>
+            <button onclick="toggleSidebar()" class="md:hidden text-gray-400 hover:text-white ml-2"><i class="fas fa-times"></i></button>
         </div>
         
         <nav class="flex-1 py-4 space-y-1 px-3 overflow-y-auto">
             <div id="nav-user">
                 <a href="#" onclick="showPage('dashboard'); closeMobileMenu()" class="flex items-center px-3 py-2.5 rounded-lg bg-blue-600 text-white shadow-lg mb-2">
-                    <i class="fas fa-home w-6 text-center"></i> <span class="ml-2">Dashboard</span>
+                    <i class="fas fa-home w-6 text-center"></i> <span class="ml-2">Papan Utama</span>
                 </a>
                 <a href="#" onclick="closeMobileMenu()" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-gray-800 transition">
-                    <i class="fas fa-file-contract w-6 text-center"></i> <span class="ml-2">MYKB Report</span>
+                    <i class="fas fa-file-contract w-6 text-center"></i> <span class="ml-2">Laporan MYKB</span>
                 </a>
                 <a href="#" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-gray-800 transition">
-                    <i class="fas fa-users w-6 text-center"></i> <span class="ml-2">Members</span>
+                    <i class="fas fa-users w-6 text-center"></i> <span class="ml-2">Keahlian</span>
                 </a>
             </div>
             <div id="nav-officer" class="hidden">
                 <a href="#" onclick="showPage('officer-inbox'); closeMobileMenu()" class="flex items-center px-3 py-2.5 rounded-lg bg-blue-600 text-white shadow-lg mb-2">
-                    <i class="fas fa-inbox w-6 text-center"></i> <span class="ml-2">Inbox (High Risk)</span>
+                    <i class="fas fa-inbox w-6 text-center"></i> <span class="ml-2">Peti Masuk (Risiko)</span>
                 </a>
                 <a href="#" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-gray-800 transition">
-                    <i class="fas fa-search w-6 text-center"></i> <span class="ml-2">Search Entity</span>
+                    <i class="fas fa-search w-6 text-center"></i> <span class="ml-2">Carian Entiti</span>
                 </a>
             </div>
         </nav>
@@ -64,7 +69,7 @@
             <div class="flex items-center space-x-3">
                 <div id="avatar-color" class="h-8 w-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0">SU</div>
                 <div class="overflow-hidden">
-                    <div id="user-role" class="text-sm font-bold text-white truncate">Secretary</div>
+                    <div id="user-role" class="text-sm font-bold text-white truncate">Setiausaha Agung</div>
                     <div id="user-org" class="text-xs truncate">Persatuan Bola Sepak</div>
                 </div>
             </div>
@@ -78,7 +83,7 @@
                 <button onclick="toggleSidebar()" class="mr-4 md:hidden text-gray-600 hover:text-blue-600">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
-                <div id="header-title" class="text-sm font-medium text-gray-500 truncate max-w-[200px]">Home / Dashboard</div>
+                <div id="header-title" class="text-sm font-medium text-gray-500 truncate max-w-[200px]">Utama / Papan Pemuka</div>
             </div>
             <div class="flex items-center space-x-4">
                 <button class="text-gray-400 hover:text-blue-600"><i class="fas fa-bell"></i></button>
@@ -90,37 +95,37 @@
 
             <div id="page-dashboard" class="fade-in pb-20">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-                    <h1 class="text-2xl font-bold text-gray-800">Compliance Dashboard</h1>
+                    <h1 class="text-2xl font-bold text-gray-800">Status Pematuhan</h1>
                     <button onclick="startWizard()" class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg shadow-lg font-medium transition transform active:scale-95">
-                        <i class="fas fa-plus mr-2"></i> Start MYKB Submission
+                        <i class="fas fa-plus mr-2"></i> Mula Serahan MYKB
                     </button>
                 </div>
                 
                 <div class="bg-white rounded-xl shadow-sm p-4 md:p-6 mb-6 border-l-4 border-red-500 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div>
-                        <div class="text-xs font-bold text-red-500 uppercase tracking-wide mb-1">Action Required</div>
-                        <h2 class="text-lg font-semibold text-gray-900">Compliance Status: <span class="text-red-600">AT RISK</span></h2>
-                        <p class="text-sm text-gray-500 mt-1">AGM Report (Borang MYKB 1) is overdue. Submit now.</p>
+                        <div class="text-xs font-bold text-red-500 uppercase tracking-wide mb-1">Tindakan Diperlukan</div>
+                        <h2 class="text-lg font-semibold text-gray-900">Status: <span class="text-red-600">BERISIKO</span></h2>
+                        <p class="text-sm text-gray-500 mt-1">Laporan Mesyuarat Agung (MYKB 1) telah lewat. Sila hantar segera.</p>
                     </div>
                     <div class="flex items-center md:block w-full md:w-auto md:text-right bg-red-50 md:bg-transparent p-3 md:p-0 rounded-lg">
                         <div class="mr-4 md:mr-0">
                             <div class="text-2xl md:text-3xl font-bold text-gray-900">24</div>
-                            <div class="text-xs text-gray-500">Days Remaining</div>
+                            <div class="text-xs text-gray-500">Hari Lagi</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                     <div class="bg-white p-5 rounded-xl shadow-sm flex items-center justify-between">
-                        <div><div class="text-gray-500 text-sm">Star Rating</div><div class="text-2xl font-bold text-yellow-500">★★☆☆☆</div></div>
+                        <div><div class="text-gray-500 text-sm">Penarafan Bintang</div><div class="text-2xl font-bold text-yellow-500">★★☆☆☆</div></div>
                         <i class="fas fa-star text-gray-200 text-3xl"></i>
                     </div>
                     <div class="bg-white p-5 rounded-xl shadow-sm flex items-center justify-between">
-                        <div><div class="text-gray-500 text-sm">Last AGM</div><div class="text-xl font-bold text-gray-900">15 Dec 2023</div></div>
+                        <div><div class="text-gray-500 text-sm">AGM Terakhir</div><div class="text-xl font-bold text-gray-900">15 Dis 2023</div></div>
                         <i class="fas fa-calendar text-gray-200 text-3xl"></i>
                     </div>
                     <div class="bg-white p-5 rounded-xl shadow-sm flex items-center justify-between">
-                        <div><div class="text-gray-500 text-sm">Members</div><div class="text-xl font-bold text-gray-900">150</div></div>
+                        <div><div class="text-gray-500 text-sm">Jumlah Ahli</div><div class="text-xl font-bold text-gray-900">150</div></div>
                         <i class="fas fa-users text-gray-200 text-3xl"></i>
                     </div>
                 </div>
@@ -128,76 +133,76 @@
 
             <div id="page-wizard" class="hidden-page fade-in max-w-5xl mx-auto pb-20">
                 <div class="flex items-center justify-center mb-6 md:mb-8 overflow-x-auto">
-                    <div id="step-1-ind" class="flex items-center flex-shrink-0"><div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div><span class="ml-2 text-sm font-medium text-blue-600 hidden md:block">Meeting</span></div>
+                    <div id="step-1-ind" class="flex items-center flex-shrink-0"><div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div><span class="ml-2 text-sm font-medium text-blue-600 hidden md:block">Mesyuarat</span></div>
                     <div class="w-8 md:w-12 h-1 bg-gray-300 mx-2"></div>
-                    <div id="step-2-ind" class="flex items-center opacity-50 flex-shrink-0"><div class="w-8 h-8 bg-gray-200 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold">2</div><span class="ml-2 text-sm text-gray-500 hidden md:block">Committee</span></div>
+                    <div id="step-2-ind" class="flex items-center opacity-50 flex-shrink-0"><div class="w-8 h-8 bg-gray-200 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold">2</div><span class="ml-2 text-sm text-gray-500 hidden md:block">AJKT</span></div>
                     <div class="w-8 md:w-12 h-1 bg-gray-300 mx-2"></div>
-                    <div id="step-3-ind" class="flex items-center opacity-50 flex-shrink-0"><div class="w-8 h-8 bg-gray-200 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold">3</div><span class="ml-2 text-sm text-gray-500 hidden md:block">Docs</span></div>
+                    <div id="step-3-ind" class="flex items-center opacity-50 flex-shrink-0"><div class="w-8 h-8 bg-gray-200 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold">3</div><span class="ml-2 text-sm text-gray-500 hidden md:block">Dokumen</span></div>
                 </div>
 
                 <div id="wizard-step-1" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                    <div class="bg-gray-50 px-4 md:px-6 py-4 border-b border-gray-200"><h3 class="font-bold text-gray-700">Step 1: AGM Details</h3></div>
+                    <div class="bg-gray-50 px-4 md:px-6 py-4 border-b border-gray-200"><h3 class="font-bold text-gray-700">Langkah 1: Maklumat Mesyuarat (AGM)</h3></div>
                     <div class="p-4 md:p-8 space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">AGM Date</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Tarikh Mesyuarat</label>
                                 <input type="date" id="agm-date" onchange="validateDate()" class="w-full border border-gray-300 rounded-lg p-2.5">
                                 <p id="date-msg" class="text-xs mt-1 h-4"></p>
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Venue</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Tempat</label>
                                 <input type="text" value="Dewan Serbaguna MPK" class="w-full border border-gray-300 rounded-lg p-2.5">
                             </div>
                         </div>
                         <div class="bg-blue-50 p-4 md:p-5 rounded-lg border border-blue-100 transition-all duration-300" id="quorum-box">
-                            <h4 class="text-sm font-bold text-blue-800 mb-3">Smart Quorum Check (AI)</h4>
+                            <h4 class="text-sm font-bold text-blue-800 mb-3">Semakan Korum Pintar (AI)</h4>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div><label class="text-xs text-gray-500">Total Members</label><input type="number" value="150" disabled class="w-full bg-gray-100 border p-2 rounded"></div>
+                                <div><label class="text-xs text-gray-500">Jumlah Ahli Berdaftar</label><input type="number" value="150" disabled class="w-full bg-gray-100 border p-2 rounded"></div>
                                 <div>
-                                    <label class="text-xs text-gray-500">Attendees</label>
+                                    <label class="text-xs text-gray-500">Jumlah Kehadiran</label>
                                     <input type="number" id="attendees" value="30" oninput="calculateQuorum()" class="w-full border p-2 rounded focus:ring-2 ring-blue-500">
                                 </div>
-                                <div class="flex items-end"><div id="quorum-result" class="text-sm font-bold text-red-600 mb-2">⚠️ 20% (Fail)</div></div>
+                                <div class="flex items-end"><div id="quorum-result" class="text-sm font-bold text-red-600 mb-2">⚠️ 20% (Gagal)</div></div>
                             </div>
-                            <div class="mt-2 text-xs text-gray-600">*Constitution requires min 30% attendance.</div>
+                            <div class="mt-2 text-xs text-gray-600">*Perlembagaan memerlukan korum minimum 30%.</div>
                         </div>
                     </div>
                     <div class="bg-gray-50 px-4 md:px-6 py-4 flex justify-end">
-                        <button onclick="nextStep(2)" class="w-full md:w-auto bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700">Next Step →</button>
+                        <button onclick="nextStep(2)" class="w-full md:w-auto bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700">Seterusnya →</button>
                     </div>
                 </div>
 
                 <div id="wizard-step-2" class="hidden-page bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-200"><h3 class="font-bold text-gray-700">Step 2: Office Bearers</h3></div>
+                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-200"><h3 class="font-bold text-gray-700">Langkah 2: Ahli Jawatankuasa (AJKT)</h3></div>
                     <div class="p-4 md:p-8 space-y-4">
-                        <div class="bg-yellow-50 text-yellow-800 p-3 rounded text-xs mb-4">ℹ️ Please verify the committee list.</div>
+                        <div class="bg-yellow-50 text-yellow-800 p-3 rounded text-xs mb-4">ℹ️ Sila sahkan senarai AJKT di bawah.</div>
                         
                         <div class="border border-gray-200 rounded-lg p-3 md:p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                            <div class="flex items-center space-x-3"><div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">👤</div><div><div class="font-bold text-sm">President</div><div class="text-xs text-gray-500">Dato' Sri Ali</div></div></div>
-                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Valid Term</span>
+                            <div class="flex items-center space-x-3"><div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">👤</div><div><div class="font-bold text-sm">Presiden</div><div class="text-xs text-gray-500">Dato' Sri Ali</div></div></div>
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Tempoh Sah</span>
                         </div>
 
                         <div class="border border-red-300 bg-red-50 rounded-lg p-3 md:p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                            <div class="flex items-center space-x-3"><div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-500 flex-shrink-0">💰</div><div><div class="font-bold text-sm text-red-900">Treasurer</div><div class="text-xs text-gray-800">Mr. Muthu A/L Kumar</div><div class="text-xs text-red-600 font-bold mt-1">⚠️ Tenure Violation (5 Years)</div></div></div>
-                            <button class="w-full md:w-auto bg-white border border-red-300 text-red-600 text-xs px-3 py-1 rounded hover:bg-red-50">Change</button>
+                            <div class="flex items-center space-x-3"><div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-500 flex-shrink-0">💰</div><div><div class="font-bold text-sm text-red-900">Bendahari</div><div class="text-xs text-gray-800">En. Muthu A/L Kumar</div><div class="text-xs text-red-600 font-bold mt-1">⚠️ Pelanggaran Tempoh (5 Tahun)</div></div></div>
+                            <button class="w-full md:w-auto bg-white border border-red-300 text-red-600 text-xs px-3 py-1 rounded hover:bg-red-50">Tukar</button>
                         </div>
                     </div>
                     <div class="bg-gray-50 px-6 py-4 flex justify-between">
-                        <button onclick="nextStep(1)" class="text-gray-500 font-medium">Back</button>
-                        <button onclick="nextStep(3)" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700">Next Step →</button>
+                        <button onclick="nextStep(1)" class="text-gray-500 font-medium">Kembali</button>
+                        <button onclick="nextStep(3)" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700">Seterusnya →</button>
                     </div>
                 </div>
 
                 <div id="wizard-step-3" class="hidden-page bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-200"><h3 class="font-bold text-gray-700">Step 3: Declaration</h3></div>
+                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-200"><h3 class="font-bold text-gray-700">Langkah 3: Pengakuan</h3></div>
                     <div class="p-8 text-center">
                         <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-file-signature text-3xl text-blue-600"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">Ready to Submit?</h3>
-                        <p class="text-sm text-gray-500 mb-6">By clicking submit, you declare the information is correct under Act 576.</p>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Sedia untuk Hantar?</h3>
+                        <p class="text-sm text-gray-500 mb-6">Dengan ini saya mengaku maklumat adalah benar di bawah Akta Pembangunan Sukan 1997.</p>
                         <button onclick="submitForm()" class="w-full md:w-auto bg-green-600 text-white px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-green-700 transition transform hover:scale-105">
-                            Submit Annual Report
+                            Hantar Laporan Tahunan
                         </button>
                     </div>
                 </div>
@@ -205,83 +210,83 @@
 
             <div id="page-officer-inbox" class="hidden-page fade-in pb-20">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-2">
-                    <h1 class="text-2xl font-bold text-gray-800">Submission Inbox</h1>
-                    <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full font-bold">3 High Risk Items</span>
+                    <h1 class="text-2xl font-bold text-gray-800">Peti Serahan</h1>
+                    <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full font-bold">3 Risiko Tinggi</span>
                 </div>
                 
                 <div class="hidden md:grid bg-white rounded-t-xl border-b border-gray-200 px-6 py-3 grid-cols-12 gap-4 text-xs font-bold text-gray-500 uppercase">
-                    <div class="col-span-1">Risk</div>
-                    <div class="col-span-5">Association</div>
-                    <div class="col-span-4">AI Flags</div>
-                    <div class="col-span-2 text-right">Action</div>
+                    <div class="col-span-1">Risiko</div>
+                    <div class="col-span-5">Persatuan</div>
+                    <div class="col-span-4">Amaran AI</div>
+                    <div class="col-span-2 text-right">Tindakan</div>
                 </div>
 
                 <div onclick="showPage('officer-review')" class="bg-white border-b border-gray-200 p-4 md:px-6 md:py-4 grid grid-cols-1 md:grid-cols-12 gap-4 items-center hover:bg-gray-50 transition cursor-pointer border-l-4 border-red-500 rounded-lg md:rounded-none shadow-sm md:shadow-none mb-4 md:mb-0">
                     <div class="col-span-1 flex justify-between md:block">
-                        <span class="text-red-600 font-bold">HIGH</span>
-                        <span class="md:hidden text-xs text-gray-400">Just now</span>
+                        <span class="text-red-600 font-bold">TINGGI</span>
+                        <span class="md:hidden text-xs text-gray-400">Baru Saja</span>
                     </div>
                     <div class="col-span-5">
                         <div class="font-bold text-gray-900 text-sm">Persatuan Bola Sepak</div>
                         <div class="text-xs text-gray-500">PJS/1022/2010</div>
                     </div>
                     <div class="col-span-4 flex flex-wrap gap-2">
-                         <span class="bg-red-100 text-red-800 text-xs px-2 py-0.5 rounded flex items-center"><i class="fas fa-exclamation-triangle mr-1"></i> Tenure</span>
-                         <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-0.5 rounded flex items-center">Quorum</span>
+                         <span class="bg-red-100 text-red-800 text-xs px-2 py-0.5 rounded flex items-center"><i class="fas fa-exclamation-triangle mr-1"></i> Tempoh AJKT</span>
+                         <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-0.5 rounded flex items-center">Korum</span>
                     </div>
                     <div class="col-span-2 md:text-right mt-2 md:mt-0">
-                        <button class="w-full md:w-auto bg-blue-600 text-white px-3 py-1.5 rounded text-xs font-bold shadow-sm">Review</button>
+                        <button class="w-full md:w-auto bg-blue-600 text-white px-3 py-1.5 rounded text-xs font-bold shadow-sm">Semak</button>
                     </div>
                 </div>
             </div>
 
             <div id="page-officer-review" class="hidden-page fade-in h-full flex flex-col pb-20">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
-                    <button onclick="showPage('officer-inbox')" class="text-gray-500 hover:text-gray-800 text-sm font-bold"><i class="fas fa-arrow-left"></i> Back to Inbox</button>
+                    <button onclick="showPage('officer-inbox')" class="text-gray-500 hover:text-gray-800 text-sm font-bold"><i class="fas fa-arrow-left"></i> Kembali</button>
                     <div class="w-full md:w-auto flex space-x-2">
-                        <button class="flex-1 md:flex-none bg-red-50 text-red-600 border border-red-200 px-4 py-2 rounded-lg font-bold text-sm">Reject</button>
-                        <button onclick="showPage('certificate')" class="flex-1 md:flex-none bg-green-600 text-white px-4 py-2 rounded-lg font-bold shadow text-sm">Approve & Certify</button>
+                        <button class="flex-1 md:flex-none bg-red-50 text-red-600 border border-red-200 px-4 py-2 rounded-lg font-bold text-sm">Tolak</button>
+                        <button onclick="showPage('certificate')" class="flex-1 md:flex-none bg-green-600 text-white px-4 py-2 rounded-lg font-bold shadow text-sm">Lulus & Sijil</button>
                     </div>
                 </div>
                 
                 <div class="flex-1 flex flex-col md:flex-row gap-6 overflow-hidden md:overflow-hidden h-auto md:h-full">
                     <div class="w-full md:w-1/2 overflow-y-auto space-y-4 h-full">
                         <div class="bg-red-50 border border-red-200 rounded-xl p-5">
-                            <h3 class="text-sm font-bold text-red-800 flex items-center"><i class="fas fa-robot mr-2"></i> AI Violation Detected</h3>
-                            <p class="text-xs text-red-600 mt-1 mb-2">Treasurer tenure exceeds 4 years (Act 576).</p>
+                            <h3 class="text-sm font-bold text-red-800 flex items-center"><i class="fas fa-robot mr-2"></i> Pelanggaran Dikesan AI</h3>
+                            <p class="text-xs text-red-600 mt-1 mb-2">Tempoh perkhidmatan Bendahari melebihi 4 tahun (Akta 576).</p>
                             <div class="bg-white p-3 rounded border border-red-100 text-sm">
                                 <div class="grid grid-cols-2">
-                                    <div class="font-bold">Current: 5 Years</div>
-                                    <div class="text-blue-600 font-bold border-l pl-2">Limit: 4 Years</div>
+                                    <div class="font-bold">Semasa: 5 Tahun</div>
+                                    <div class="text-blue-600 font-bold border-l pl-2">Had: 4 Tahun</div>
                                 </div>
                             </div>
                         </div>
                          <div class="bg-white border border-gray-200 rounded-xl p-5">
-                            <h3 class="text-sm font-bold text-gray-800 mb-2">Financial Summary</h3>
-                             <div class="text-sm text-gray-600">Income: RM 45,000 (Govt Grant)</div>
-                             <div class="text-sm text-green-600 font-bold mt-1">✓ Internal Audit Sufficient</div>
+                            <h3 class="text-sm font-bold text-gray-800 mb-2">Ringkasan Kewangan</h3>
+                             <div class="text-sm text-gray-600">Pendapatan: RM 45,000 (Geran Kerajaan)</div>
+                             <div class="text-sm text-green-600 font-bold mt-1">✓ Audit Dalaman Mencukupi</div>
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 bg-gray-800 rounded-xl flex items-center justify-center text-gray-500 flex-col min-h-[300px] md:min-h-auto">
                         <i class="fas fa-file-pdf text-4xl mb-2"></i>
-                        <span>Meeting Minutes.pdf</span>
+                        <span>Minit Mesyuarat.pdf</span>
                     </div>
                 </div>
             </div>
 
             <div id="page-certificate" class="hidden-page fade-in flex items-center justify-center h-full p-4 pb-20">
                 <div class="bg-white p-6 md:p-8 shadow-2xl rounded-xl border-8 border-double border-yellow-600 text-center max-w-2xl w-full">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Coat_of_arms_of_Malaysia.svg/200px-Coat_of_arms_of_Malaysia.svg.png" class="h-12 md:h-16 mx-auto mb-4 opacity-80">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Coat_of_arms_of_Malaysia.svg/200px-Coat_of_arms_of_Malaysia.svg.png" class="h-12 md:h-16 mx-auto mb-4 opacity-80" alt="Logo Jata Negara">
                     <div class="font-['Playfair_Display'] text-xl md:text-2xl text-blue-900 font-bold mb-2 italic">Sijil Akuan Baik</div>
                     <p class="text-xs uppercase tracking-widest text-gray-500 mb-6">Certificate of Good Standing</p>
                     <p class="text-md md:text-lg font-bold text-gray-900 mb-2">PERSATUAN BOLA SEPAK</p>
-                    <p class="text-xs md:text-sm text-gray-600 mb-6">Has successfully complied with Act 576 for Year 2024.</p>
+                    <p class="text-xs md:text-sm text-gray-600 mb-6">Telah memenuhi syarat Akta Pembangunan Sukan 1997 bagi tahun 2024.</p>
                     <div class="w-full h-px bg-gray-300 mb-6"></div>
                     <div class="flex justify-between items-center">
                         <i class="fas fa-qrcode text-3xl md:text-4xl"></i>
                         <div class="text-right">
                             <div class="font-['Playfair_Display'] text-md md:text-lg font-bold">Pesuruhjaya Sukan</div>
-                            <div class="text-xs text-gray-500">Generated: 25 Nov 2025</div>
+                            <div class="text-xs text-gray-500">Tarikh: 25 Nov 2025</div>
                         </div>
                     </div>
                 </div>
@@ -291,46 +296,38 @@
     </div>
 
     <div class="fixed bottom-4 right-4 z-50 flex flex-col space-y-2">
-        <div class="bg-gray-900 text-white text-[10px] px-3 py-1 rounded-t text-center shadow-lg">Demo Controls</div>
+        <div class="bg-gray-900 text-white text-[10px] px-3 py-1 rounded-t text-center shadow-lg">Kawalan Demo</div>
         <div class="bg-white p-2 rounded-b shadow-2xl border border-gray-300 flex space-x-2">
             <button onclick="switchRole('user')" class="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded text-xs font-bold shadow">
-                <i class="fas fa-user"></i> User
+                <i class="fas fa-user"></i> Persatuan
             </button>
             <button onclick="switchRole('officer')" class="bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded text-xs font-bold shadow">
-                <i class="fas fa-shield-alt"></i> PJS
+                <i class="fas fa-shield-alt"></i> Admin
             </button>
         </div>
     </div>
 
     <script>
-        // State Management
         let currentRole = 'user';
         
-        // 1. HARD RESET ON LOAD
         window.onload = function() {
             switchRole('user');
             calculateQuorum();
         };
 
-        // Sidebar Logic for Mobile
         function toggleSidebar() {
             const sidebar = document.getElementById('main-sidebar');
             const overlay = document.getElementById('mobile-overlay');
-            
-            // Toggle translate class
             if (sidebar.classList.contains('-translate-x-full')) {
-                // Open Sidebar
                 sidebar.classList.remove('-translate-x-full');
                 overlay.classList.remove('hidden');
             } else {
-                // Close Sidebar
                 sidebar.classList.add('-translate-x-full');
                 overlay.classList.add('hidden');
             }
         }
 
         function closeMobileMenu() {
-            // Helper to close menu when a link is clicked
             const sidebar = document.getElementById('main-sidebar');
             const overlay = document.getElementById('mobile-overlay');
             sidebar.classList.add('-translate-x-full');
@@ -345,15 +342,15 @@
             const roleText = document.getElementById('user-role');
             const avatar = document.getElementById('avatar-color');
 
-            // Close menu if open on mobile
             closeMobileMenu();
 
             if (role === 'officer') {
                 sidebar.style.backgroundColor = '#1e3a8a';
                 userNav.classList.add('hidden');
                 officerNav.classList.remove('hidden');
-                roleText.innerText = 'PJS Officer (Admin)';
-                avatar.innerText = 'PO';
+                // Updated to Generic Role
+                roleText.innerText = 'Pentadbir Sistem';
+                avatar.innerText = 'AD';
                 avatar.classList.remove('bg-green-500');
                 avatar.classList.add('bg-blue-400');
                 showPage('officer-inbox');
@@ -361,7 +358,7 @@
                 sidebar.style.backgroundColor = '#101219';
                 officerNav.classList.add('hidden');
                 userNav.classList.remove('hidden');
-                roleText.innerText = 'Secretary';
+                roleText.innerText = 'Setiausaha Agung';
                 avatar.innerText = 'SU';
                 avatar.classList.remove('bg-blue-400');
                 avatar.classList.add('bg-green-500');
@@ -370,11 +367,7 @@
         }
 
         function showPage(pageId) {
-            const pages = [
-                'page-dashboard', 'page-wizard', 'page-officer-inbox', 
-                'page-officer-review', 'page-certificate'
-            ];
-
+            const pages = ['page-dashboard', 'page-wizard', 'page-officer-inbox', 'page-officer-review', 'page-certificate'];
             pages.forEach(p => {
                 const el = document.getElementById(p);
                 if(el) el.classList.add('hidden-page');
@@ -398,7 +391,6 @@
             document.getElementById('wizard-step-2').classList.add('hidden-page');
             document.getElementById('wizard-step-3').classList.add('hidden-page');
             document.getElementById('wizard-step-' + step).classList.remove('hidden-page');
-            
             if(step >= 2) updateStepper('step-2-ind', true);
             if(step >= 3) updateStepper('step-3-ind', true);
         }
@@ -416,9 +408,9 @@
         function submitForm() {
             const btn = document.querySelector('#wizard-step-3 button');
             const originalText = btn.innerText;
-            btn.innerText = "Submitting...";
+            btn.innerText = "Menghantar...";
             setTimeout(() => {
-                alert("✅ Submission Sent!\n\nSwitching to PJS Officer View.");
+                alert("✅ Serahan Berjaya!\n\nSistem akan beralih ke paparan Admin.");
                 btn.innerText = originalText;
                 switchRole('officer');
             }, 800);
@@ -432,12 +424,12 @@
             const box = document.getElementById('quorum-box');
             
             if (percentage < 30) {
-                resultDiv.innerText = `⚠️ ${percentage}% (Fail)`;
+                resultDiv.innerText = `⚠️ ${percentage}% (Gagal)`;
                 resultDiv.className = "text-sm font-bold text-red-600 mb-2";
                 box.classList.add('bg-red-50', 'border-red-200');
                 box.classList.remove('bg-green-50', 'border-green-200');
             } else {
-                resultDiv.innerText = `✅ ${percentage}% (Pass)`;
+                resultDiv.innerText = `✅ ${percentage}% (Lulus)`;
                 resultDiv.className = "text-sm font-bold text-green-600 mb-2";
                 box.classList.remove('bg-red-50', 'border-red-200');
                 box.classList.add('bg-green-50', 'border-green-200');
@@ -448,7 +440,7 @@
             const dateInput = document.getElementById('agm-date').value;
             const msg = document.getElementById('date-msg');
             if(dateInput) {
-                msg.innerText = "✓ Date valid";
+                msg.innerText = "✓ Tarikh sah";
                 msg.className = "text-xs mt-1 h-4 text-green-600 font-bold";
             }
         }
