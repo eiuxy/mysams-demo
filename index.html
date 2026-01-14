@@ -29,16 +29,13 @@
         
         <div class="h-24 flex items-center justify-between px-4 border-b border-gray-800 bg-gray-900">
             <div class="flex items-center w-full justify-end">
-                
                 <div class="flex flex-col justify-center items-end mr-3 flex-1 text-right">
                     <span class="text-white font-bold text-lg leading-none">mySAMS <span class="text-blue-500">II</span></span>
                     <span class="text-[9px] text-gray-400 uppercase tracking-wider leading-none mt-1.5 font-semibold">Pejabat Pesuruhjaya<br>Sukan Malaysia</span>
                 </div>
-
                 <div class="bg-white p-1 rounded">
-                    <img src="logo_kbs.png" class="h-12 w-auto" alt="Logo KBS">
+                    <div class="h-10 w-10 bg-gray-200 flex items-center justify-center text-xs text-gray-500 font-bold">LOGO</div>
                 </div>
-                
             </div>
             <button onclick="toggleSidebar()" class="md:hidden text-gray-400 hover:text-white ml-2"><i class="fas fa-times"></i></button>
         </div>
@@ -48,10 +45,12 @@
                 <a href="#" onclick="showPage('dashboard'); closeMobileMenu()" class="flex items-center px-3 py-2.5 rounded-lg bg-blue-600 text-white shadow-lg mb-2">
                     <i class="fas fa-home w-6 text-center"></i> <span class="ml-2">Papan Utama</span>
                 </a>
-                <a href="#" onclick="closeMobileMenu()" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-gray-800 transition">
+                
+                <a href="#" onclick="showPage('mykb-history'); closeMobileMenu()" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-gray-800 transition">
                     <i class="fas fa-file-contract w-6 text-center"></i> <span class="ml-2">Laporan MYKB</span>
                 </a>
-                <a href="#" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-gray-800 transition">
+                
+                <a href="#" onclick="showPage('page-membership'); closeMobileMenu()" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-gray-800 transition">
                     <i class="fas fa-users w-6 text-center"></i> <span class="ml-2">Keahlian</span>
                 </a>
             </div>
@@ -131,7 +130,219 @@
                 </div>
             </div>
 
+            <div id="page-mykb-history" class="hidden-page fade-in pb-20">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Sejarah Serahan MYKB</h1>
+                        <p class="text-sm text-gray-500">Lihat rekod terdahulu atau buat serahan baharu.</p>
+                    </div>
+                    <button onclick="startWizard()" class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg shadow-lg font-medium transition transform active:scale-95">
+                        <i class="fas fa-plus mr-2"></i> Buat Laporan 2024
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-200">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-left text-sm whitespace-nowrap">
+                            <thead class="bg-gray-50 border-b border-gray-200 uppercase tracking-wider font-semibold text-xs text-gray-500">
+                                <tr>
+                                    <th class="px-6 py-4">Tahun Kewangan</th>
+                                    <th class="px-6 py-4">Tarikh Hantar</th>
+                                    <th class="px-6 py-4">Jenis</th>
+                                    <th class="px-6 py-4">Status</th>
+                                    <th class="px-6 py-4 text-right">Tindakan</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr class="bg-blue-50/50">
+                                    <td class="px-6 py-4 font-bold text-gray-800">2024</td>
+                                    <td class="px-6 py-4 text-gray-500">-</td>
+                                    <td class="px-6 py-4">MYKB 1 (AGM)</td>
+                                    <td class="px-6 py-4"><span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs font-bold">DRAF</span></td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button onclick="startWizard()" class="text-blue-600 font-bold hover:underline">Sambung</button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4 font-medium text-gray-800">2023</td>
+                                    <td class="px-6 py-4 text-gray-500">15 Jan 2024</td>
+                                    <td class="px-6 py-4">MYKB 1 (AGM)</td>
+                                    <td class="px-6 py-4"><span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">LULUS</span></td>
+                                    <td class="px-6 py-4 text-right space-x-2">
+                                        <button class="text-gray-400 hover:text-blue-600" title="Lihat"><i class="fas fa-eye"></i></button>
+                                        <button class="text-gray-400 hover:text-green-600" title="Sijil"><i class="fas fa-certificate"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4 font-medium text-gray-800">2022</td>
+                                    <td class="px-6 py-4 text-gray-500">20 Feb 2023</td>
+                                    <td class="px-6 py-4">MYKB 1 (AGM)</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-bold">LULUS (BERSYARAT)</span>
+                                        <div class="text-[10px] text-gray-500 mt-1">Lewat Hantar</div>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-blue-600"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mt-4 flex items-center p-4 bg-blue-50 text-blue-800 rounded-lg text-sm border border-blue-100">
+                    <i class="fas fa-info-circle mr-3 text-lg"></i>
+                    <div>
+                        <strong>Petua Pintar:</strong> Sistem akan mengesan pelanggaran tempoh AJKT secara automatik berdasarkan data dari tahun 2022 dan 2023.
+                    </div>
+                </div>
+            </div>
+
+            <div id="page-membership" class="hidden-page fade-in pb-20">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Daftar Keahlian</h1>
+                        <p class="text-sm text-gray-500">Urus senarai ahli yang layak mengundi untuk pengiraan korum.</p>
+                    </div>
+                    <div class="flex space-x-2 w-full md:w-auto">
+                        <button class="flex-1 md:flex-none bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-50 text-sm">
+                            <i class="fas fa-file-excel mr-2 text-green-600"></i> Import Excel
+                        </button>
+                        <button class="flex-1 md:flex-none bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 text-sm shadow">
+                            <i class="fas fa-user-plus mr-2"></i> Tambah Ahli
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-900 rounded-xl p-6 text-white mb-6 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white opacity-10 rounded-full blur-xl"></div>
+                    <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3 bg-white/10 rounded-lg">
+                                <i class="fas fa-calculator text-2xl text-blue-300"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Simulasi Korum AGM</h3>
+                                <p class="text-xs text-blue-200">Data ini digunakan secara automatik dalam Laporan MYKB.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 md:space-x-6 bg-indigo-800/50 p-3 rounded-lg border border-indigo-700">
+                            <div>
+                                <div class="text-xs text-indigo-300 uppercase tracking-wider">Jum. Ahli</div>
+                                <div class="text-2xl font-bold">150</div>
+                            </div>
+                            <div class="text-indigo-400 font-bold">×</div>
+                            <div>
+                                <div class="text-xs text-indigo-300 uppercase tracking-wider">Syarat (%)</div>
+                                <div class="text-xl font-bold">30%</div>
+                            </div>
+                            <div class="text-indigo-400 font-bold">=</div>
+                            <div>
+                                <div class="text-xs text-yellow-400 uppercase tracking-wider font-bold">Korum Diperlukan</div>
+                                <div class="text-2xl font-bold text-yellow-400">45 Orang</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
+                    <div class="relative w-full md:w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text" placeholder="Cari Nama atau No. KP..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-full text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <select class="w-full md:w-auto border border-gray-300 rounded-lg py-2 px-3 text-sm bg-white">
+                        <option>Semua Kategori</option>
+                        <option>Ahli Biasa (Mengundi)</option>
+                        <option>Ahli Bersekutu</option>
+                    </select>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-200">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-left text-sm whitespace-nowrap">
+                            <thead class="bg-gray-50 border-b border-gray-200 uppercase tracking-wider font-semibold text-xs text-gray-500">
+                                <tr>
+                                    <th class="px-6 py-4 w-10">
+                                        <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                                    </th>
+                                    <th class="px-6 py-4">Nama Penuh</th>
+                                    <th class="px-6 py-4">No. Kad Pengenalan</th>
+                                    <th class="px-6 py-4">Kategori</th>
+                                    <th class="px-6 py-4">Status</th>
+                                    <th class="px-6 py-4 text-right">Tindakan</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4"><input type="checkbox" class="rounded border-gray-300"></td>
+                                    <td class="px-6 py-4 font-medium text-gray-900">
+                                        <div class="flex items-center">
+                                            <div class="h-8 w-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mr-3">MK</div>
+                                            Muthu a/l Kumar
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-500">851012-10-5521</td>
+                                    <td class="px-6 py-4"><span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded border border-blue-100">Ahli Biasa</span></td>
+                                    <td class="px-6 py-4"><span class="w-2 h-2 bg-green-500 rounded-full inline-block mr-2"></span> Aktif</td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-blue-600 px-2"><i class="fas fa-edit"></i></button>
+                                        <button class="text-gray-400 hover:text-red-600 px-2"><i class="fas fa-trash-alt"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4"><input type="checkbox" class="rounded border-gray-300"></td>
+                                    <td class="px-6 py-4 font-medium text-gray-900">
+                                        <div class="flex items-center">
+                                            <div class="h-8 w-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold mr-3">SA</div>
+                                            Siti Aminah binti Ali
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-500">900101-14-1234</td>
+                                    <td class="px-6 py-4"><span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded border border-blue-100">Ahli Biasa</span></td>
+                                    <td class="px-6 py-4"><span class="w-2 h-2 bg-green-500 rounded-full inline-block mr-2"></span> Aktif</td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-blue-600 px-2"><i class="fas fa-edit"></i></button>
+                                        <button class="text-gray-400 hover:text-red-600 px-2"><i class="fas fa-trash-alt"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4"><input type="checkbox" class="rounded border-gray-300"></td>
+                                    <td class="px-6 py-4 font-medium text-gray-900">
+                                        <div class="flex items-center">
+                                            <div class="h-8 w-8 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center text-xs font-bold mr-3">CK</div>
+                                            Chong Wei Keong
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-500">780505-08-9981</td>
+                                    <td class="px-6 py-4"><span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded border border-gray-200">Ahli Bersekutu</span></td>
+                                    <td class="px-6 py-4"><span class="w-2 h-2 bg-red-500 rounded-full inline-block mr-2"></span> Tidak Aktif</td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-gray-400 hover:text-blue-600 px-2"><i class="fas fa-edit"></i></button>
+                                        <button class="text-gray-400 hover:text-red-600 px-2"><i class="fas fa-trash-alt"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-200 flex items-center justify-between">
+                        <span class="text-xs text-gray-500">Menunjukkan 1-3 daripada 150 ahli</span>
+                        <div class="flex space-x-1">
+                            <button class="px-3 py-1 border border-gray-300 rounded bg-white text-xs hover:bg-gray-100">Prev</button>
+                            <button class="px-3 py-1 border border-gray-300 rounded bg-white text-xs hover:bg-gray-100">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="page-wizard" class="hidden-page fade-in max-w-5xl mx-auto pb-20">
+                <div class="flex items-center mb-4">
+                    <button onclick="showPage('mykb-history')" class="text-sm text-gray-500 hover:text-blue-600 mb-2">
+                        <i class="fas fa-arrow-left"></i> Kembali ke Sejarah
+                    </button>
+                </div>
+
                 <div class="flex items-center justify-center mb-6 md:mb-8 overflow-x-auto">
                     <div id="step-1-ind" class="flex items-center flex-shrink-0"><div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div><span class="ml-2 text-sm font-medium text-blue-600 hidden md:block">Mesyuarat</span></div>
                     <div class="w-8 md:w-12 h-1 bg-gray-300 mx-2"></div>
@@ -141,7 +352,10 @@
                 </div>
 
                 <div id="wizard-step-1" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                    <div class="bg-gray-50 px-4 md:px-6 py-4 border-b border-gray-200"><h3 class="font-bold text-gray-700">Langkah 1: Maklumat Mesyuarat (AGM)</h3></div>
+                    <div class="bg-gray-50 px-4 md:px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                        <h3 class="font-bold text-gray-700">Langkah 1: Maklumat Mesyuarat (AGM)</h3>
+                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Data diimport dari 2023</span>
+                    </div>
                     <div class="p-4 md:p-8 space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
@@ -348,7 +562,6 @@
                 sidebar.style.backgroundColor = '#1e3a8a';
                 userNav.classList.add('hidden');
                 officerNav.classList.remove('hidden');
-                // Updated to Generic Role
                 roleText.innerText = 'Pentadbir Sistem';
                 avatar.innerText = 'AD';
                 avatar.classList.remove('bg-green-500');
@@ -367,7 +580,9 @@
         }
 
         function showPage(pageId) {
-            const pages = ['page-dashboard', 'page-wizard', 'page-officer-inbox', 'page-officer-review', 'page-certificate'];
+            // Added 'page-membership' to this list
+            const pages = ['page-dashboard', 'page-mykb-history', 'page-membership', 'page-wizard', 'page-officer-inbox', 'page-officer-review', 'page-certificate'];
+            
             pages.forEach(p => {
                 const el = document.getElementById(p);
                 if(el) el.classList.add('hidden-page');
@@ -379,7 +594,7 @@
 
             const targetEl = document.getElementById(targetId);
             if(targetEl) targetEl.classList.remove('hidden-page');
-        }
+        }   
 
         function startWizard() {
             showPage('wizard');
